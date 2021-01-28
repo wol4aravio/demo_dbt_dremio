@@ -5,7 +5,7 @@ demo_dbt_dremio:
       threads: 2
 # please replace driver below with the one you gave to your dremio odbc driver installation
       driver: /opt/dremio-odbc/lib64/libdrillodbc_sb64.so
-      host: dremio
+      host: 0.0.0.0
       port: 31010
       environment: env_dbt
       schema: FS
