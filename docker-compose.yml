@@ -8,7 +8,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=dbt
       - MYSQL_USER=dbt
       - MYSQL_PASSWORD=dbt
   mongo:
@@ -17,6 +17,11 @@ services:
     restart: on-failure
     ports:
       - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=dbt
+      - MONGO_INITDB_ROOT_PASSWORD=dbt
+      - MONGO_INITDB_DATABASE=dbt
+
   dremio:
     image: dremio/dremio-oss:12.1.0
     container_name: dremio
@@ -25,11 +30,12 @@ services:
       - 9047:9047
       - 31010:31010
       - 45678:45678
-  # dbt:
-  #   build:
-  #     context: .
-  #   container_name: dbt
-  #   restart: on-failure
-  #   command: poetry run dbt debug --project-dir=demo_dbt_dremio --profiles-dir=demo_dbt_dremio
-  #   depends_on:
-  #     - dremio
+  db_fill:
+    build:
+      context: .
+    container_name: db_fill
+    restart: on-failure
+    command: python fill.py
+    depends_on:
+      - mysql
+      - mongo

@@ -22,6 +22,7 @@ COPY poetry.lock .
 RUN poetry install --no-dev
 
 COPY demo_dbt_dremio demo_dbt_dremio
+COPY fill.py .
 RUN poetry install --no-dev
 
 ENTRYPOINT [ "poetry", "run"]
