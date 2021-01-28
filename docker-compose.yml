@@ -25,11 +25,11 @@ services:
       - 9047:9047
       - 31010:31010
       - 45678:45678
-  dbt:
-    build:
-      context: .
-    container_name: dbt
-    restart: on-failure
-    command: poetry run dbt debug --project-dir=demo_dbt_dremio --profiles-dir=demo_dbt_dremio
-    depends_on:
-      - dremio
+  # dbt:
+  #   build:
+  #     context: .
+  #   container_name: dbt
+  #   restart: on-failure
+  #   command: poetry run dbt debug --project-dir=demo_dbt_dremio --profiles-dir=demo_dbt_dremio
+  #   depends_on:
+  #     - dremio
