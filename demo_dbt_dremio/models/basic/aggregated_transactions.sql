@@ -1,5 +1,3 @@
-{ { config(materialized = 'table') } }
-
 with users as (
     select
         *
