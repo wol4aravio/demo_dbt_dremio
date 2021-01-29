@@ -1,21 +1,10 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: aggregated_transactions
+      description: "All aggregated transactions sorted from highest to lowest"
       columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+          - name: name
+            description: "User name"
+          - name: total_spent
+            description: "How much money user has spent"
