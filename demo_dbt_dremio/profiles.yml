@@ -1,9 +1,9 @@
 demo_dbt_dremio:
+  target: prod
   outputs:
     prod:
       type: dremio
       threads: 2
-# please replace driver below with the one you gave to your dremio odbc driver installation
       driver: /opt/dremio-odbc/lib64/libdrillodbc_sb64.so
       host: 0.0.0.0
       port: 31010
@@ -11,4 +11,3 @@ demo_dbt_dremio:
       schema: FS
       user: dbt
       password: DEMO_DBT_DREMIO_1
-  target: prod
