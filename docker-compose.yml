@@ -18,6 +18,7 @@ services:
     ports:
       - 27017:27017
     environment:
+      - MYSQL_ROOT_PASSWORD=dbt_root
       - MONGO_INITDB_ROOT_USERNAME=dbt
       - MONGO_INITDB_ROOT_PASSWORD=dbt
       - MONGO_INITDB_DATABASE=dbt
