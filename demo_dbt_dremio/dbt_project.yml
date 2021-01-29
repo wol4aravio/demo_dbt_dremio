@@ -18,3 +18,5 @@ clean-targets:
 
 models:
   demo_dbt_dremio:
+      example:
+          materialized: table
