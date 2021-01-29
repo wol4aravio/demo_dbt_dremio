@@ -8,6 +8,7 @@ services:
     ports:
       - 3306:3306
     environment:
+      - MYSQL_ROOT_PASSWORD=dbt_root
       - MYSQL_DATABASE=dbt
       - MYSQL_USER=dbt
       - MYSQL_PASSWORD=dbt
@@ -18,7 +19,6 @@ services:
     ports:
       - 27017:27017
     environment:
-      - MYSQL_ROOT_PASSWORD=dbt_root
       - MONGO_INITDB_ROOT_USERNAME=dbt
       - MONGO_INITDB_ROOT_PASSWORD=dbt
       - MONGO_INITDB_DATABASE=dbt
